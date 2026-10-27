@@ -252,10 +252,10 @@ footer a{font-weight:700}
       <h1 data-i18n="heroTitle">LGBTQ+ inclusion for workplaces that <span class="tilt">mean&nbsp;it.</span></h1>
       <div class="btns">
         <a class="btn primary" href="#contact" data-i18n="navContact">Contact Us</a>
-        <a class="icon-btn" href="https://www.instagram.com/radiant2gether/" aria-label="Radiant Together on Instagram" data-i18n-aria="igLabel">
+        <a class="icon-btn" href="https://www.instagram.com/radiant2gether/" target="_blank" rel="noopener" aria-label="Radiant Together on Instagram" data-i18n-aria="igLabel">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
         </a>
-        <a class="icon-btn" href="https://www.linkedin.com/company/radiant-together/" aria-label="Radiant Together on LinkedIn" data-i18n-aria="liLabel">
+        <a class="icon-btn" href="https://www.linkedin.com/company/radiant-together/" target="_blank" rel="noopener" aria-label="Radiant Together on LinkedIn" data-i18n-aria="liLabel">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="4" y="9.5" width="3.2" height="10.5" rx="0.6"/><circle cx="5.6" cy="5.6" r="1.9"/><path d="M10 9.5h3.05v1.45c.5-.9 1.65-1.7 3.3-1.7 3.1 0 3.65 2 3.65 4.6V20h-3.2v-5.4c0-1.3-.05-2.9-1.8-2.9s-2.05 1.35-2.05 2.8V20H10z"/></svg>
         </a>
       </div>
@@ -349,7 +349,7 @@ footer a{font-weight:700}
             <div class="who"><h3>Nemo <span class="pron" data-i18n="nemoPron">they/them</span></h3>
             <p class="role" data-i18n="nemoRole">Founder, Consultant &amp; Speaker</p></div>
           </div>
-          <p data-i18n="nemoText1">Nemo has a PhD in Neuroscience and is the creator and host of the edutainment Youtube channel “<a href="http://www.youtube.com/drnemo">Dr. NEMO</a>”.</p>
+          <p data-i18n="nemoText1">Nemo has a PhD in Neuroscience and is the creator and host of the edutainment Youtube channel “<a href="http://www.youtube.com/drnemo" target="_blank" rel="noopener">Dr. NEMO</a>”.</p>
           <p data-i18n="nemoText2">As a non-binary and neurodivergent person, Nemo knows firsthand what inclusion feels like when it works, and what it costs when it doesn't. That experience is what drives their deep and persistent desire to build a world where everyone gets to belong.</p>
         </article>
         <article class="person">
@@ -377,8 +377,8 @@ footer a{font-weight:700}
         <div class="follow">
           <p data-i18n="follow">Follow us on social media</p>
           <div class="follow-icons">
-            <a class="icon-btn" href="https://www.instagram.com/radiant2gether/" aria-label="Radiant Together on Instagram" data-i18n-aria="igLabel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
-            <a class="icon-btn" href="https://www.linkedin.com/company/radiant-together/" aria-label="Radiant Together on LinkedIn" data-i18n-aria="liLabel"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="4" y="9.5" width="3.2" height="10.5" rx="0.6"/><circle cx="5.6" cy="5.6" r="1.9"/><path d="M10 9.5h3.05v1.45c.5-.9 1.65-1.7 3.3-1.7 3.1 0 3.65 2 3.65 4.6V20h-3.2v-5.4c0-1.3-.05-2.9-1.8-2.9s-2.05 1.35-2.05 2.8V20H10z"/></svg></a>
+            <a class="icon-btn" href="https://www.instagram.com/radiant2gether/" target="_blank" rel="noopener" aria-label="Radiant Together on Instagram" data-i18n-aria="igLabel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+            <a class="icon-btn" href="https://www.linkedin.com/company/radiant-together/" target="_blank" rel="noopener" aria-label="Radiant Together on LinkedIn" data-i18n-aria="liLabel"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="4" y="9.5" width="3.2" height="10.5" rx="0.6"/><circle cx="5.6" cy="5.6" r="1.9"/><path d="M10 9.5h3.05v1.45c.5-.9 1.65-1.7 3.3-1.7 3.1 0 3.65 2 3.65 4.6V20h-3.2v-5.4c0-1.3-.05-2.9-1.8-2.9s-2.05 1.35-2.05 2.8V20H10z"/></svg></a>
           </div>
         </div>
       </div>
@@ -452,6 +452,7 @@ footer a{font-weight:700}
     ariaNodes.forEach(function(n){var k=n.getAttribute('data-i18n-aria');n.setAttribute('aria-label',(D&&D[k])?D[k]:n.dataset.enAria)});
     hrefNodes.forEach(function(n){n.setAttribute('href',current==='de'?n.getAttribute('data-href-de'):n.dataset.hrefEn)});
     [].forEach.call(document.querySelectorAll('[data-setlang]'),function(b){b.setAttribute('aria-current',b.getAttribute('data-setlang')===current?'true':'false')});
+    [].forEach.call(document.querySelectorAll('a[href^="http"]'),function(a){a.target='_blank';a.rel='noopener'});
     try{localStorage.setItem('rt-lang',current)}catch(e){}
   }
   var start='en';
