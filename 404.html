@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found · Radiant Together</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+/* Layout: bubblegum pink ground with lavender bands, soft pastel fills, bordeaux reserved for buttons, the topic band and the contact box */
+:root{
+  --bg:#f7e9fa;          /* pale lavender ground (lavender softened toward cream) */
+  --bg-2:#f1dbf6;        /* slightly deeper lavender band */
+  --card:#ffffff;        /* brand white */
+  --fg:#4a1f3a;          /* brand bordeaux ink */
+  --muted:#6b4560;
+  --accent:#ecc7f3;      /* brand lavender */
+  --pop:#f4a7d8;         /* brand pink */
+  --deep:#4a1f3a;        /* brand bordeaux */
+  --on-deep:#ffffff;
+  --line:#e6cdee;
+  color-scheme:light;
+  --display:"Fredoka","Nunito",ui-rounded,system-ui,sans-serif;
+  --body:"Nunito",ui-rounded,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:1.0625rem;line-height:1.65;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:3px solid var(--deep);outline-offset:3px;border-radius:10px}
+
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.band{padding-block:clamp(40px,5.5vw,72px)}
+.band.lav{background:var(--bg-2)}
+.eyebrow{font-family:var(--display);font-weight:500;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
+.eyebrow::before{content:"✦";color:var(--pop);letter-spacing:0;font-size:1.1em}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;padding-block:12px;background:var(--bg)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:600;font-size:1.2rem}
+.mark{width:34px;height:34px;flex:none}
+.links{display:flex;gap:4px;align-items:center;background:var(--card);padding:5px;border-radius:999px}
+.links a{text-decoration:none;font-weight:700;font-size:.95rem;padding:7px 14px;border-radius:999px}
+.links a:hover{background:var(--accent)}
+.links a.cta{background:var(--deep);color:var(--on-deep)}
+@media (max-width:600px){.links a:not(.cta):not(.keep){display:none}}
+.brand,.links a{white-space:nowrap}
+@media (max-width:420px){.brand{font-size:1.05rem;gap:8px}.mark{width:30px;height:30px}.links a{padding:7px 12px;font-size:.9rem}}
+
+/* hero */
+.hero{padding-block:clamp(20px,4vw,52px) clamp(48px,7vw,88px);position:relative;overflow:hidden}
+.hero .wrap{position:relative;display:grid;gap:26px;grid-template-columns:minmax(0,1fr)}
+.hero .wrap{z-index:1}
+.glow{position:absolute;z-index:0;width:clamp(240px,34vw,440px);height:auto;aspect-ratio:1;top:-50px;right:-60px;transform:rotate(-2.5deg);opacity:.42;pointer-events:none}
+@media (max-width:700px){.glow{width:130px;top:-30px;right:-34px;opacity:.32}}
+.rainbow{height:6px;width:min(220px,60%);border-radius:999px;background:linear-gradient(90deg,#e40303 0 16.66%,#ff8c00 0 33.33%,#ffed00 0 50%,#008026 0 66.66%,#24408e 0 83.33%,#732982 0)}
+.rainbow.center{margin-inline:auto}
+.hero h1{font-size:clamp(2.5rem,7.4vw,5.4rem);font-weight:700;max-width:15ch;letter-spacing:-.015em}
+.hero h1 .tilt{display:inline-block;background:var(--card);color:var(--deep);padding:0 .25em .05em;border-radius:.4em;box-shadow:0 .07em 0 var(--line);transform:rotate(-2.5deg);margin-left:.05em;white-space:nowrap}
+.hero .lede{font-size:clamp(1.1rem,2vw,1.3rem);max-width:56ch;color:var(--muted);font-weight:500}
+.btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.icon-btn{width:52px;height:52px;border-radius:50%;background:var(--card);color:var(--deep);display:grid;place-items:center;transition:transform .15s}
+.icon-btn:hover{transform:translateY(-2px)}
+.icon-btn svg{width:24px;height:24px}
+.btn{display:inline-flex;align-items:center;text-decoration:none;font-family:var(--display);font-weight:600;font-size:1.05rem;padding:13px 24px;border-radius:999px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--deep);color:var(--on-deep)}
+.btn.soft{background:var(--card);color:var(--fg)}
+
+/* topic band */
+.topics{background:var(--deep);color:var(--on-deep);overflow:hidden;padding-block:14px}
+.topics-track{display:flex;gap:28px;width:max-content;animation:scroll 50s linear infinite}
+.topics span{font-family:var(--display);font-weight:500;font-size:1.05rem;white-space:nowrap;display:inline-flex;align-items:center;gap:28px}
+.topics span::after{content:"✦";color:var(--pop)}
+.topics span:nth-child(6n+1)::after{color:#ff6b6b}.topics span:nth-child(6n+2)::after{color:#ffa23a}.topics span:nth-child(6n+3)::after{color:#ffe14d}.topics span:nth-child(6n+4)::after{color:#4fd685}.topics span:nth-child(6n+5)::after{color:#7fb2ff}.topics span:nth-child(6n)::after{color:#c99bff}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* intro */
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(28px,5vw,64px)}
+.split > *{min-width:0;display:grid;gap:14px;align-content:start}
+.split h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+.split p{font-size:clamp(1.15rem,1.9vw,1.35rem);line-height:1.55}
+.st::before{content:"✦ ";color:var(--pop)}
+
+/* sections */
+.section-head{display:grid;gap:10px;margin-bottom:clamp(28px,4vw,40px)}
+.section-head h2{font-size:clamp(2rem,4.6vw,3.2rem)}
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:980px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}.services .svc:last-child{grid-column:1 / -1}}
+@media (max-width:640px){.services{grid-template-columns:minmax(0,1fr)}}
+.svc{background:var(--card);border-radius:24px;padding:clamp(22px,3vw,32px);display:grid;gap:12px;align-content:start;min-width:0}
+.svc h3{font-size:clamp(1.45rem,2.6vw,1.8rem)}
+.svc ul{margin:0;padding-left:1.1em;display:grid;gap:4px}
+.svc li::marker{color:var(--pop)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.85rem;font-weight:700;padding:4px 11px;border-radius:999px;background:var(--accent)}
+.how{margin-top:18px;background:var(--bg);border-radius:24px;padding:clamp(22px,3vw,32px);display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+.how > *{min-width:0}
+.how h3{font-size:1.5rem;margin-bottom:6px}
+.langs{display:flex;flex-wrap:wrap;gap:8px}
+.langs{gap:10px 8px;padding-block:6px;flex-wrap:nowrap}
+@media (max-width:760px){.langs{flex-direction:column;align-items:stretch;gap:8px}.lang{text-align:center}}
+.lang{font-family:var(--display);font-weight:600;padding:7px 18px;border-radius:999px;color:var(--deep);font-size:1rem;display:inline-block;transition:transform .2s}
+/* pastel trans flag order: blue, pink, white, pink, blue */
+.lang:nth-child(1){background:#c6e8fb}
+.lang:nth-child(2){background:#f9cfe0}
+.lang:nth-child(3){background:#ffffff}
+.lang:nth-child(4){background:#f9cfe0}
+.lang:nth-child(5){background:#c6e8fb}
+.lang:hover{transform:scale(1.06)}
+
+/* quote */
+.quote{display:grid;gap:22px;max-width:820px}
+.quote blockquote{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(1.4rem,3.2vw,2.2rem);line-height:1.35;text-wrap:pretty}
+.quote .hl{background:linear-gradient(transparent 60%,var(--pop) 60%,var(--pop) 92%,transparent 92%)}
+.quote cite{font-style:normal;font-weight:800;display:flex;align-items:center;gap:10px}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px}
+.person{background:var(--card);border-radius:24px;padding:clamp(22px,3vw,32px);display:grid;gap:10px;align-content:start;min-width:0}
+.avatar{width:210px;height:210px;max-width:100%;flex:none;border-radius:50%;object-fit:cover;border:6px solid var(--accent);display:block}
+.person-head{display:flex;align-items:center;gap:12px 24px;flex-wrap:wrap;margin-bottom:8px}
+.who{display:grid;gap:8px;min-width:0;flex:1 1 160px}
+.person h3{font-size:1.75rem;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.pron{font-family:var(--body);font-size:.85rem;font-weight:800;background:var(--bg-2);padding:3px 10px;border-radius:999px}
+.role{font-weight:800;color:var(--muted)}
+.hiring{margin-top:18px;border:2px dashed var(--pop);border-radius:24px;padding:clamp(20px,3vw,28px);display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center}
+.hiring ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.hiring li{background:var(--card);border-radius:999px;padding:6px 14px;font-weight:700;font-size:.95rem}
+
+/* trusted */
+.trusted{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.client{background:var(--card);border-radius:999px;padding:10px 20px;font-family:var(--display);font-weight:500}
+
+/* contact */
+.contact{background:var(--deep);color:var(--on-deep);border-radius:32px;padding:clamp(32px,6vw,64px);display:grid;gap:18px;justify-items:start}
+.contact .eyebrow{color:var(--on-deep);opacity:.85}
+.contact h2{font-size:clamp(2rem,5vw,3.4rem)}
+.mailrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mail{font-family:var(--display);font-weight:600;font-size:clamp(.95rem,4vw,1.6rem);background:var(--on-deep);color:var(--deep);border-radius:999px;padding:10px 20px;user-select:all;overflow-wrap:anywhere;text-decoration:none}
+.copy{font-family:var(--display);font-weight:600;font-size:1rem;padding:10px 18px;border-radius:999px;border:2px solid var(--on-deep);background:transparent;color:var(--on-deep);cursor:pointer}
+.follow{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-top:6px;padding-top:18px;border-top:1px solid rgba(255,255,255,.25);width:100%}
+.follow p{font-family:var(--display);font-weight:500;font-size:1.1rem}
+.follow-icons{display:flex;gap:10px}
+.trusted .more{font-family:var(--display);font-weight:500;color:var(--muted);font-style:italic}
+.copy:hover{background:var(--on-deep);color:var(--deep)}
+
+/* footer */
+footer{padding-block:36px 52px;font-size:.95rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+footer a{font-weight:700}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+
+/* language menu */
+.langmenu{position:relative}
+.langmenu summary{list-style:none;cursor:pointer;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--deep)}
+.langmenu summary::-webkit-details-marker{display:none}
+.langmenu summary:hover,.langmenu[open] summary{background:var(--accent)}
+.langmenu summary svg{width:20px;height:20px}
+.langmenu .menu{position:absolute;right:0;top:calc(100% + 10px);background:var(--card);border-radius:16px;padding:6px;display:grid;gap:2px;min-width:160px;box-shadow:0 8px 24px rgba(74,31,58,.16);z-index:30}
+.langmenu .menu button{font:inherit;font-weight:700;font-size:.95rem;text-align:left;border:0;background:transparent;color:var(--fg);padding:8px 12px;border-radius:10px;cursor:pointer;display:flex;gap:12px;align-items:center}
+.langmenu .menu button:hover{background:var(--bg-2)}
+.langmenu .menu button[aria-current="true"]{background:var(--accent)}
+.langmenu .code{font-family:var(--display);font-weight:600;color:var(--muted);min-width:2.2ch}
+
+/* phone menu */
+.nav{position:sticky}
+.burger{display:none;width:36px;height:36px;border-radius:50%;border:0;background:transparent;color:var(--deep);cursor:pointer;place-items:center;padding:0}
+.burger:hover,.burger[aria-expanded="true"]{background:var(--accent)}
+.burger svg{width:22px;height:22px}
+.mobile-menu{position:absolute;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));top:calc(100% + 4px);background:var(--card);border-radius:22px;padding:8px;display:grid;gap:2px;box-shadow:0 10px 28px rgba(74,31,58,.16);z-index:25}
+.mobile-menu a{text-decoration:none;font-family:var(--display);font-weight:600;font-size:1.15rem;padding:12px 16px;border-radius:14px}
+.mobile-menu a:hover{background:var(--bg-2)}
+.mobile-menu a.cta{background:var(--deep);color:var(--on-deep);text-align:center;margin-top:4px}
+@media (max-width:600px){.burger{display:grid}.links a.cta{display:none}}
+@media (min-width:601px){.mobile-menu{display:none!important}}
+[hidden]{display:none!important}
+</style>
+<style>
+.hero{min-height:calc(100vh - 160px);display:grid;align-content:center}
+.big404{font-family:var(--display,"Fredoka"),sans-serif;font-weight:700;font-size:clamp(5rem,18vw,10rem);line-height:.9;margin:0 0 6px;opacity:.9}
+.lost{max-width:52ch;font-size:clamp(1.1rem,2vw,1.3rem);margin:14px 0 24px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Radiant Together">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="var(--deep)"/>
+        <path d="M20 7 C21.5 16 24 18.5 33 20 C24 21.5 21.5 24 20 33 C18.5 24 16 21.5 7 20 C16 18.5 18.5 16 20 7Z" fill="var(--pop)"/>
+      </svg>
+      Radiant Together
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="/#services" data-i18n="navServices">Services</a>
+      <a href="/#team" data-i18n="navTeam">Team</a>
+      <a class="cta" href="/#contact" data-i18n="navContact">Contact Us</a>
+      <details class="langmenu" id="langmenu">
+        <summary aria-label="Language" data-i18n-aria="langLabel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.7 3.9 5.9 3.9 9.5s-1.3 6.8-3.9 9.5c-2.6-2.7-3.9-5.9-3.9-9.5s1.3-6.8 3.9-9.5z"/></svg>
+        </summary>
+        <div class="menu">
+          <button type="button" data-setlang="en" lang="en"><span class="code">EN</span>English</button>
+          <button type="button" data-setlang="de" lang="de"><span class="code">DE</span>Deutsch</button>
+          <button type="button" data-setlang="fr" lang="fr"><span class="code">FR</span>Français</button>
+          <button type="button" data-setlang="it" lang="it"><span class="code">IT</span>Italiano</button>
+          <button type="button" data-setlang="nl" lang="nl"><span class="code">NL</span>Nederlands</button>
+        </div>
+      </details>
+      <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menu" hidden>
+    <a href="/#services" data-i18n="navServices">Services</a>
+    <a href="/#team" data-i18n="navTeam">Team</a>
+    <a class="cta" href="/#contact" data-i18n="navContact">Contact Us</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <svg class="glow" viewBox="0 0 300 300" aria-hidden="true">
+      <defs><clipPath id="bubble"><circle cx="150" cy="150" r="150"/></clipPath></defs>
+      <g clip-path="url(#bubble)">
+        <rect y="0" width="300" height="51" fill="#e40303"/>
+        <rect y="50" width="300" height="51" fill="#ff8c00"/>
+        <rect y="100" width="300" height="51" fill="#ffed00"/>
+        <rect y="150" width="300" height="51" fill="#008026"/>
+        <rect y="200" width="300" height="51" fill="#24408e"/>
+        <rect y="250" width="300" height="50" fill="#732982"/>
+        <polygon points="0,0 110,0 260,150 110,300 0,300" fill="#000000"/>
+        <polygon points="0,0 80,0 230,150 80,300 0,300" fill="#613915"/>
+        <polygon points="0,0 50,0 200,150 50,300 0,300" fill="#5bcefa"/>
+        <polygon points="0,0 20,0 170,150 20,300 0,300" fill="#f5a9b8"/>
+        <polygon points="0,10 140,150 0,290" fill="#ffffff"/>
+        <polygon points="0,40 110,150 0,260" fill="#ffd800"/>
+        <circle cx="40" cy="150" r="20" fill="none" stroke="#7902aa" stroke-width="7"/>
+      </g>
+    </svg>
+    <div class="wrap">
+    <div class="wrap">
+      <p class="big404" aria-hidden="true">404</p>
+      <h1 data-i18n="t">Page not found</h1>
+      <p class="lost" data-i18n="x">The page you're looking for doesn't exist or has moved.</p>
+      <div class="btns">
+        <a class="btn primary" href="/" data-i18n="home">Back to the homepage</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><span data-i18n="byline">Radiant ✦ Together by Dr. NEMO</span> · <a href="mailto:info@radiant-together.com">info@radiant-together.com</a></span>
+    <nav aria-label="Legal">
+      <a href="/imprint.html" data-href-de="/impressum.html" data-i18n="legal">Imprint &amp; Data Protection</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var DE={"navServices": "Leistungen", "navTeam": "Team", "navContact": "Kontakt", "langLabel": "Sprache", "t": "Seite nicht gefunden", "x": "Die Seite, die Sie suchen, existiert nicht oder wurde verschoben.", "home": "Zur Startseite", "byline": "Radiant ✦ Together von Dr. NEMO", "legal": "Impressum &amp; Datenschutz"};
+  var FR={"navServices": "Services", "navTeam": "Équipe", "navContact": "Contact", "langLabel": "Langue", "t": "Page introuvable", "x": "La page que vous cherchez n’existe pas ou a été déplacée.", "home": "Retour à l’accueil", "byline": "Radiant ✦ Together par Dr. NEMO", "legal": "Mentions légales &amp; données personnelles"};
+  var IT={"navServices": "Servizi", "navTeam": "Team", "navContact": "Contatti", "langLabel": "Lingua", "t": "Pagina non trovata", "x": "La pagina che cerchi non esiste o è stata spostata.", "home": "Torna alla home", "byline": "Radiant ✦ Together di Dr. NEMO", "legal": "Note legali &amp; privacy"};
+  var NL={"navServices": "Diensten", "navTeam": "Team", "navContact": "Contact", "langLabel": "Taal", "t": "Pagina niet gevonden", "x": "De pagina die u zoekt bestaat niet of is verplaatst.", "home": "Naar de homepage", "byline": "Radiant ✦ Together door Dr. NEMO", "legal": "Colofon &amp; privacy"};
+  var DICTS={de:DE,fr:FR,it:IT,nl:NL};
+  var EN={};
+  var nodes=[].slice.call(document.querySelectorAll('[data-i18n]'));
+  var ariaNodes=[].slice.call(document.querySelectorAll('[data-i18n-aria]'));
+  var hrefNodes=[].slice.call(document.querySelectorAll('[data-href-de]'));
+  nodes.forEach(function(n){n.dataset.en=n.innerHTML});
+  ariaNodes.forEach(function(n){n.dataset.enAria=n.getAttribute('aria-label')});
+  hrefNodes.forEach(function(n){n.dataset.hrefEn=n.getAttribute('href')});
+  var current='en';
+  function t(key){var D=DICTS[current];return (D&&D[key])||EN[key]}
+  function setLang(lang){
+    current=DICTS[lang]?lang:'en';
+    var D=DICTS[current];
+    document.documentElement.lang=current;
+    nodes.forEach(function(n){var k=n.getAttribute('data-i18n');n.innerHTML=(D&&D[k])?D[k]:n.dataset.en});
+    ariaNodes.forEach(function(n){var k=n.getAttribute('data-i18n-aria');n.setAttribute('aria-label',(D&&D[k])?D[k]:n.dataset.enAria)});
+    hrefNodes.forEach(function(n){n.setAttribute('href',current==='de'?n.getAttribute('data-href-de'):n.dataset.hrefEn)});
+    [].forEach.call(document.querySelectorAll('[data-setlang]'),function(b){b.setAttribute('aria-current',b.getAttribute('data-setlang')===current?'true':'false')});
+    [].forEach.call(document.querySelectorAll('a[href^="http"]'),function(a){a.target='_blank';a.rel='noopener'});
+    try{localStorage.setItem('rt-lang',current)}catch(e){}
+  }
+  var start='en';
+  try{var saved=localStorage.getItem('rt-lang');if(saved)start=saved}catch(e){}
+  if(/^de\./.test(location.hostname))start='de';
+  var urlLang=null;
+  try{urlLang=new URLSearchParams(location.search).get('lang')}catch(e){}
+  if(urlLang){urlLang=urlLang.toLowerCase();if(urlLang==='en'||DICTS[urlLang])start=urlLang}
+  var ownSite=/(^|\.)radiant-together\.com$|\.github\.io$/.test(location.hostname);
+  setLang(start);
+  var menu=document.getElementById('langmenu');
+  [].forEach.call(document.querySelectorAll('[data-setlang]'),function(b){
+    b.addEventListener('click',function(){
+      setLang(b.getAttribute('data-setlang'));menu.open=false;
+      if(ownSite){try{var u=new URL(location.href);u.searchParams.set('lang',current);history.replaceState(null,'',u)}catch(e){}}
+    });
+  });
+  document.addEventListener('click',function(e){if(menu.open&&!menu.contains(e.target))menu.open=false});
+
+  var burger=document.getElementById('burger'), mm=document.getElementById('mobileMenu');
+  function setMenu(open){mm.hidden=!open;burger.setAttribute('aria-expanded',open?'true':'false')}
+  burger.addEventListener('click',function(e){e.stopPropagation();setMenu(mm.hidden);menu.open=false});
+  [].forEach.call(mm.querySelectorAll('a'),function(a){a.addEventListener('click',function(){setMenu(false)})});
+})();
+</script>
+</body>
+</html>
