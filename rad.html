@@ -51,7 +51,7 @@ p{margin:0}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .mark{width:40px;height:40px;flex:none}
 .brand-text{display:grid;line-height:1}
-.brand-text b{font-family:var(--display);font-weight:700;font-size:1.45rem;letter-spacing:.06em}
+.brand-text b{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:.02em;white-space:nowrap}
 .brand-text small{font-size:.72rem;font-weight:700;color:var(--lav);letter-spacing:.04em}
 .links{display:flex;gap:6px;align-items:center}
 .links a{text-decoration:none;font-weight:800;font-size:.95rem;padding:8px 14px;border-radius:999px;white-space:nowrap}
@@ -81,11 +81,12 @@ p{margin:0}
 /* hero */
 .hero{background:var(--ink);color:var(--cream);padding-block:clamp(36px,6vw,80px) clamp(56px,8vw,104px);position:relative;overflow:hidden}
 .hero .wrap{position:relative;z-index:1;display:grid;gap:26px;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);align-items:center}
-@media (max-width:860px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.hero-art{order:-1;justify-self:start;width:120px!important;transform:rotate(-4deg)}}
+@media (max-width:860px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.hero-art{display:none}}
 .eyebrow{font-family:var(--display);font-weight:600;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lav);display:inline-flex;align-items:center;gap:8px}
 .eyebrow::before{content:"✦";color:var(--pink);letter-spacing:0}
 .hero h1{font-size:clamp(2.6rem,7vw,5.2rem);letter-spacing:-.01em;margin-top:10px}
 .tilt{display:inline-block;background:var(--cream);color:var(--ink);padding:0 .22em .06em;border-radius:.35em;transform:rotate(-3deg);box-shadow:.08em .08em 0 var(--pink);white-space:nowrap}
+.hero .lede a{color:var(--cream);text-decoration-color:var(--pink);text-decoration-thickness:2px;text-underline-offset:3px}
 .hero .lede{font-size:clamp(1.1rem,2vw,1.3rem);max-width:56ch;color:var(--lav);font-weight:600}
 .hero .copy-col{display:grid;gap:22px}
 .hero-art{width:100%;max-width:340px;justify-self:end;transform:rotate(4deg);filter:drop-shadow(10px 10px 0 var(--plum))}
@@ -146,6 +147,8 @@ p{margin:0}
 .forms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;align-items:start}
 @media (max-width:860px){.forms{grid-template-columns:minmax(0,1fr)}}
 .forms form{gap:6px}
+#institutions{box-shadow:7px 7px 0 var(--blue)}
+#join{box-shadow:7px 7px 0 var(--pink)}
 .forms .hint{color:var(--muted);font-size:.98rem;margin-bottom:6px}
 .forms label{font-weight:800;font-size:.95rem;margin-top:10px}
 .forms input,.forms select,.forms textarea{width:100%;font:inherit;color:var(--ink);padding:11px 14px;border:3px solid var(--ink);border-radius:14px;background:#fff}
@@ -153,7 +156,7 @@ p{margin:0}
 .forms textarea{min-height:96px;resize:vertical}
 .forms .check{display:flex;gap:10px;align-items:flex-start;font-weight:600;font-size:.92rem;margin-top:12px}
 .forms .check input{width:auto;margin-top:5px;flex:none;accent-color:var(--plum)}
-.forms button.btn{cursor:pointer;margin-top:16px;width:100%}
+.forms button.btn{cursor:pointer;margin-top:16px;width:100%;border:0}
 
 /* roadmap */
 .road{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
@@ -196,7 +199,7 @@ footer a{font-weight:800}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="RAD Network by Radiant Together">
       <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#3a1530"/><circle cx="24" cy="32" r="14" fill="none" stroke="#8AD8F8" stroke-width="6"/><circle cx="40" cy="32" r="14" fill="none" stroke="#F7A8C8" stroke-width="6"/><path d="M24 18 A14 14 0 0 1 36.1 25" fill="none" stroke="#8AD8F8" stroke-width="6"/><path d="M32 19.4 C33.08 27.44 34.88 29.48 42.2 32 C34.88 34.52 33.08 36.56 32 44.6 C30.92 36.56 29.12 34.52 21.8 32 C29.12 29.48 30.92 27.44 32 19.4Z" fill="#FFF6FB"/></svg>
-      <span class="brand-text"><b>RAD</b><small data-i18n="byRT">by Radiant Together</small></span>
+      <span class="brand-text"><b>RAD Network</b><small data-i18n="byRT">by Radiant Together</small></span>
     </a>
     <nav class="links" aria-label="Main">
       <a href="#how" data-i18n="navHow">How it works</a>
@@ -228,9 +231,8 @@ footer a{font-weight:800}
   <section class="hero">
     <div class="wrap">
       <div class="copy-col">
-        <span class="eyebrow" data-i18n="eyebrow">The RAD Network</span>
-        <h1 data-i18n="heroTitle">Queer professionals, matched with <span class="tilt">care.</span></h1>
-        <p class="lede" data-i18n="heroLede">RAD is a matchmaking service between institutions and queer professionals. Everyone queer is welcome, and we especially encourage trans and non-binary professionals to join. You tell us what you need, we introduce the right people, with their consent, every time.</p>
+        <h1 data-i18n="heroTitle">Queer talent, matched with <span class="tilt">care.</span></h1>
+        <p class="lede" data-i18n="heroLede">A matchmaking service by <a href="index.html">Radiant Together</a>, connecting institutions with queer professionals.</p>
         <div class="btns">
           <a class="btn inst" href="#institutions" data-i18n="btnInst">For institutions</a>
           <svg class="btn-spark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 C13 9 15 11 23 12 C15 13 13 15 12 23 C11 15 9 13 1 12 C9 11 11 9 12 1Z" fill="#FFF6FB"/></svg>
@@ -270,7 +272,7 @@ footer a{font-weight:800}
     <div class="wrap">
       <div class="section-head">
         <h2 class="st" data-i18n="profTitle">Professions in the network</h2>
-        <p data-i18n="profText">Frankfurt and Rhein-Main first, Germany-wide for work that can be done remotely.</p>
+        <p data-i18n="profText">Mostly in Germany, starting with Frankfurt and Rhein-Main. For remote work, professionals can be based further away.</p>
       </div>
       <div class="profs">
         <span class="prof"><span data-i18n="p1">Coaching</span></span>
@@ -291,7 +293,7 @@ footer a{font-weight:800}
       </div>
       <div class="services">
         <article class="svc"><h3 data-i18n="pr1T">Always free</h3><p data-i18n="pr1X">No membership fee, no commission. Institutions and sponsors fund the network.</p></article>
-        <article class="svc"><h3 data-i18n="pr2T">Your consent, every time</h3><p data-i18n="pr2X">We ask you before every single introduction. You can say no without giving a reason.</p></article>
+        <article class="svc"><h3 data-i18n="pr2T">Your consent comes first</h3><p data-i18n="pr2X">We ask you before every single introduction. You can say no without giving a reason.</p></article>
         <article class="svc"><h3 data-i18n="pr3T">You decide what's shared</h3><p data-i18n="pr3X">Private introductions only, or also featured in our newsletter for institutions. Change your mind anytime, or leave and have all your data deleted.</p></article>
       </div>
     </div>
@@ -304,30 +306,6 @@ footer a{font-weight:800}
         <p data-i18n="formsText">Choose the form that fits you. We reply personally within a week.</p>
       </div>
       <div class="forms">
-
-        <!-- Professionals: no identity questions beyond self-identification; details are discussed in the follow-up call -->
-        <form class="svc" id="join" action="https://form.taxi/s/xmoxznzz" method="POST">
-          <h3 data-i18n="jTitle">Join as a professional</h3>
-          <p class="hint" data-i18n="jHint">For queer professionals of all kinds. Trans and non-binary professionals are especially encouraged to join. We'll get to know you in a short call first.</p>
-          <input type="hidden" name="_subject" value="RAD: new professional">
-          <label for="p-name" data-i18n="lName">Name you work under</label>
-          <input id="p-name" name="name" required autocomplete="name">
-          <label for="p-email" data-i18n="lEmail">Email</label>
-          <input id="p-email" type="email" name="email" required autocomplete="email">
-          <label for="p-job" data-i18n="lJob">What do you do?</label>
-          <input id="p-job" name="profession" required data-i18n-ph="phJob" placeholder="e.g. event photographer, career coach">
-          <label for="p-area" data-i18n="lArea">Where do you work?</label>
-          <input id="p-area" name="area" data-i18n-ph="phArea" placeholder="e.g. Frankfurt, Rhein-Main, online">
-          <label for="p-web" data-i18n="lWeb">Website or portfolio (optional)</label>
-          <input id="p-web" type="text" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" name="website" data-i18n-ph="phWeb" placeholder="e.g. yourname.com or @yourinstagram">
-          <label for="p-vouch" data-i18n="lVouch">Who referred you or can vouch for you? (optional)</label>
-          <input id="p-vouch" name="referred_by" data-i18n-ph="phVouch" placeholder="A RAD member, a community group, an organisation...">
-          <label for="p-msg" data-i18n="lMsg">Anything you'd like us to know? (optional)</label>
-          <textarea id="p-msg" name="message"></textarea>
-          <label class="check"><input type="checkbox" name="self_identification" required><span data-i18n="jElig">I'm part of the LGBTQIA+ community (self-identified), and I understand that RAD is based on honest self-identification.</span></label>
-          <label class="check"><input type="checkbox" name="consent" required><span data-i18n="jConsent">I explicitly agree that Radiant Together stores this information to contact me about RAD, as described in the <a href="imprint.html">data protection notice</a>. I can withdraw my consent at any time.</span></label>
-          <button class="btn primary" type="submit" data-i18n="send">Send</button>
-        </form>
 
         <!-- Institutions -->
         <form class="svc" id="institutions" action="https://form.taxi/s/ezye4zr1" method="POST">
@@ -351,7 +329,31 @@ footer a{font-weight:800}
           <label for="i-req" data-i18n="lReq">Your request (optional)</label>
           <textarea id="i-req" name="request" data-i18n-ph="phReq" placeholder="What, when, where, rough budget"></textarea>
           <label class="check"><input type="checkbox" name="consent" required><span data-i18n="iConsent">I agree that Radiant Together stores this information to reply to me, as described in the <a href="imprint.html">data protection notice</a>.</span></label>
-          <button class="btn primary" type="submit" data-i18n="send">Send</button>
+          <button class="btn inst" type="submit" data-i18n="send">Send</button>
+        </form>
+
+        <!-- Professionals: no identity questions beyond self-identification; details are discussed in the follow-up call -->
+        <form class="svc" id="join" action="https://form.taxi/s/xmoxznzz" method="POST">
+          <h3 data-i18n="jTitle">Join as a professional</h3>
+          <p class="hint" data-i18n="jHint">For queer professionals of all kinds. Trans and non-binary professionals are especially encouraged to join. We'll get to know you in a short call first.</p>
+          <input type="hidden" name="_subject" value="RAD: new professional">
+          <label for="p-name" data-i18n="lName">Name you work under</label>
+          <input id="p-name" name="name" required autocomplete="name">
+          <label for="p-email" data-i18n="lEmail">Email</label>
+          <input id="p-email" type="email" name="email" required autocomplete="email">
+          <label for="p-job" data-i18n="lJob">What do you do?</label>
+          <input id="p-job" name="profession" required data-i18n-ph="phJob" placeholder="e.g. event photographer, career coach">
+          <label for="p-area" data-i18n="lArea">Where do you work?</label>
+          <input id="p-area" name="area" data-i18n-ph="phArea" placeholder="e.g. Frankfurt, Rhein-Main, online">
+          <label for="p-web" data-i18n="lWeb">Website or portfolio (optional)</label>
+          <input id="p-web" type="text" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" name="website" data-i18n-ph="phWeb" placeholder="e.g. yourname.com or @yourinstagram">
+          <label for="p-vouch" data-i18n="lVouch">Who referred you or can vouch for you? (optional)</label>
+          <input id="p-vouch" name="referred_by" data-i18n-ph="phVouch" placeholder="A RAD member, a community group, an organisation...">
+          <label for="p-msg" data-i18n="lMsg">Anything you'd like us to know? (optional)</label>
+          <textarea id="p-msg" name="message"></textarea>
+          <label class="check"><input type="checkbox" name="self_identification" required><span data-i18n="jElig">I'm part of the LGBTQIA+ community (self-identified), and I understand that RAD is based on honest self-identification.</span></label>
+          <label class="check"><input type="checkbox" name="consent" required><span data-i18n="jConsent">I explicitly agree that Radiant Together stores this information to contact me about RAD, as described in the <a href="imprint.html">data protection notice</a>. I can withdraw my consent at any time.</span></label>
+          <button class="btn pro" type="submit" data-i18n="send">Send</button>
         </form>
 
       </div>
@@ -380,7 +382,7 @@ footer a{font-weight:800}
       <details><summary data-i18n="q1">Can institutions see the list of members?</summary><p data-i18n="a1">No. The member list stays private. You describe what you need, and we introduce suitable people who have agreed to it.</p></details>
       <details><summary data-i18n="q2">Will the client know I'm queer, trans or non-binary?</summary><p data-i18n="a2">Only if you want them to. You decide, and you can decide differently for each job.</p></details>
       <details><summary data-i18n="q3">Why does the institution pay, and not the professional?</summary><p data-i18n="a3">Institutions save time and get a trusted, respectful way to work with queer professionals. Professionals should keep everything they earn.</p></details>
-      <details><summary data-i18n="q4">Where does RAD operate?</summary><p data-i18n="a4">We start in Frankfurt and Rhein-Main, and match remote work across Germany. More regions will follow.</p></details>
+      <details><summary data-i18n="q4">Where does RAD operate?</summary><p data-i18n="a4">Mostly in Germany: we start in Frankfurt and Rhein-Main. For work that can be done remotely, we also match professionals based further away.</p></details>
     </div>
   </section>
 
@@ -413,9 +415,9 @@ footer a{font-weight:800}
 (function(){
   var DE={
     navHow:'So funktioniert’s', navProf:'Berufe', navJoin:'Jetzt matchen', navBack:'Radiant Together', langLabel:'Sprache',
-    eyebrow:'Das RAD Network', byRT:'von Radiant Together',
-    heroTitle:'Queere Fachkräfte, mit <span class="tilt">Sorgfalt</span> vermittelt.',
-    heroLede:'RAD ist ein Vermittlungsservice zwischen Institutionen und queeren Fachkräften. Alle queeren Menschen sind willkommen, und wir ermutigen besonders trans und nicht-binäre Fachkräfte, mitzumachen. Sie sagen uns, was Sie brauchen, und wir stellen Ihnen passende Menschen vor, immer mit deren Einverständnis.',
+    byRT:'von Radiant Together',
+    heroTitle:'Queere Talente, mit <span class="tilt">Sorgfalt</span> vermittelt.',
+    heroLede:'Ein Vermittlungsservice von <a href="index.html">Radiant Together</a>, der Institutionen mit queeren Fachkräften zusammenbringt.',
     btnInst:'Für Institutionen', btnPro:'Für Fachkräfte',
     p1:'Coaching', p2:'Therapie &amp; Beratung', p3:'Diversity-Trainings', p4:'Workshop-Moderation', p5:'Illustration', p6:'Musik &amp; DJ', p7:'Fotografie', p8:'Grafikdesign', p9:'Eventplanung', p10:'Catering', p11:'Englisch-Lektorat', p12:'Übersetzen &amp; Dolmetschen',
     whatTitle:'Was RAD ist',
@@ -426,12 +428,12 @@ footer a{font-weight:800}
     s1T:'Sagen Sie uns, was Sie brauchen', s1X:'Eine Fotograf:in für Ihr Symposium, ein Coaching für Ihre Promovierenden, ein Design für Ihr Poster: Schicken Sie uns eine kurze Anfrage mit Datum, Ort und Budget.',
     s2T:'Lernen Sie Ihr Match kennen', s2X:'Wir wählen ein bis drei Fachkräfte aus dem Netzwerk aus und fragen jede Person vorher. Nur wer zusagt, wird Ihnen vorgestellt.',
     s3T:'Direkt beauftragen', s3X:'Sie vereinbaren den Auftrag und bezahlen die Fachkraft direkt, zu deren eigenen Konditionen. Das Honorar bleibt zu 100 % bei ihr. Klappt die Vermittlung, berechnen wir Ihnen eine kleine Gebühr. Klappt sie nicht, finden wir ohne Mehrkosten jemand anderen.',
-    profTitle:'Berufe im Netzwerk', profText:'Zuerst Frankfurt und Rhein-Main, deutschlandweit für Arbeit, die aus der Ferne möglich ist.',
+    profTitle:'Berufe im Netzwerk', profText:'Vor allem in Deutschland, beginnend mit Frankfurt und Rhein-Main. Bei Remote-Arbeit können Fachkräfte auch weiter entfernt sein.',
     more:'und viele mehr',
     profNote:'',
     promTitle:'Unsere Versprechen an Fachkräfte',
     pr1T:'Immer kostenlos', pr1X:'Kein Mitgliedsbeitrag, keine Provision. Das Netzwerk wird von Institutionen und Sponsor:innen finanziert.',
-    pr2T:'Ihr Einverständnis, jedes Mal', pr2X:'Wir fragen Sie vor jeder einzelnen Vorstellung. Sie können ohne Begründung ablehnen.',
+    pr2T:'Ihr Einverständnis zuerst', pr2X:'Wir fragen Sie vor jeder einzelnen Vorstellung. Sie können ohne Begründung ablehnen.',
     pr3T:'Sie entscheiden, was geteilt wird', pr3X:'Nur private Vorstellungen oder zusätzlich im Newsletter für Institutionen. Sie können Ihre Wahl jederzeit ändern oder austreten und alle Daten löschen lassen.',
     formsTitle:'Jetzt matchen', formsText:'Wählen Sie das passende Formular. Wir antworten persönlich innerhalb einer Woche.',
     jTitle:'Als Fachkraft beitreten',
@@ -455,7 +457,7 @@ footer a{font-weight:800}
     q1:'Können Institutionen die Mitgliederliste sehen?', a1:'Nein. Die Liste bleibt privat. Sie beschreiben, was Sie brauchen, und wir stellen Ihnen passende Menschen vor, die zugestimmt haben.',
     q2:'Erfährt die Auftraggeber:in, dass ich queer, trans oder nicht-binär bin?', a2:'Nur wenn Sie das möchten. Sie entscheiden, und zwar für jeden Auftrag neu.',
     q3:'Warum zahlt die Institution und nicht die Fachkraft?', a3:'Institutionen sparen Zeit und erhalten einen vertrauenswürdigen, respektvollen Weg zur Zusammenarbeit mit queeren Fachkräften. Fachkräfte sollen behalten, was sie verdienen.',
-    q4:'Wo ist RAD aktiv?', a4:'Wir starten in Frankfurt und Rhein-Main und vermitteln Remote-Arbeit deutschlandweit. Weitere Regionen folgen.',
+    q4:'Wo ist RAD aktiv?', a4:'Vor allem in Deutschland: Wir starten in Frankfurt und Rhein-Main. Für Arbeit, die remote möglich ist, vermitteln wir auch Fachkräfte von weiter weg.',
     contactTitle:'Fragen zu RAD?', copy:'Adresse kopieren', copied:'Kopiert', selected:'Markiert, mit Strg+C kopieren',
     byline:'Radiant ✦ Together von Dr. NEMO', legal:'Impressum &amp; Datenschutz'
   };
